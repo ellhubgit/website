@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penilaian Wawancara CASIS (Calon OSIS)</title>
+<style>
+:root{--forest:#163f35;--forest2:#215c4b;--gold:#d6b66d;--ink:#1d2b25;--muted:#718078;--line:#dfe7e1;--paper:#f4f7f4;--white:#fff;--mint:#eaf2ed}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);line-height:1.55}
+header{background:linear-gradient(120deg,#123b31,#245c4a);color:#fff;border-bottom:4px solid var(--gold);padding:30px 18px}
+.wrap{max-width:1050px;margin:auto}.hero{display:flex;justify-content:space-between;align-items:center;gap:20px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#e5d19a}.hero h1{font-size:clamp(26px,4vw,38px);line-height:1.12;margin:9px 0}.hero p{margin:0;color:#d9e8e0;font-size:14px}.mark{width:64px;height:64px;border:1px solid #d6b66d;border-radius:20px;display:grid;place-items:center;font-weight:900;color:#f0d990;letter-spacing:1px;font-size:18px;flex-shrink:0}
+main{max-width:1050px;margin:24px auto;padding:0 16px 44px}.panel{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:17px;box-shadow:0 8px 24px #183d2d08}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.head h2{font-size:18px;margin:0}.tag{background:var(--mint);color:var(--forest2);font-size:11px;font-weight:800;border-radius:99px;padding:6px 10px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.field label{display:block;font-size:12px;font-weight:800;color:#45594e;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #d7e1da;border-radius:11px;background:#fbfdfb;padding:12px 13px;color:var(--ink);font:inherit;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#5b8b76;box-shadow:0 0 0 3px #5b8b761c}
+.scorecard{display:grid;grid-template-columns:1fr auto;align-items:center;gap:15px;background:var(--forest);color:#fff;border-radius:15px;padding:18px;margin-top:17px}.scorecard small{color:#d0e1d8}.score{font-size:34px;font-weight:900;line-height:1.2}.badge{background:#e8d59b;color:#2b4135;font-weight:900;font-size:12px;border-radius:99px;padding:8px 12px}.track{height:7px;background:#ffffff2b;border-radius:99px;overflow:hidden;margin-top:10px}.track div{height:100%;background:var(--gold);width:0;transition:width .2s}
+.question{border:1px solid var(--line);border-radius:15px;padding:17px;margin:12px 0}.qrow{display:flex;gap:12px;align-items:flex-start}.qnum{width:34px;height:34px;flex:0 0 34px;border-radius:11px;background:var(--mint);color:var(--forest);display:grid;place-items:center;font-weight:900}.qmain{flex:1;min-width:0}.qmain h3{font-size:15px;line-height:1.45;margin:4px 0 10px}
+.guide{border-left:3px solid var(--gold);background:#f7f9f6;padding:10px 12px;border-radius:0 9px 9px 0;margin:8px 0 13px;font-size:12px;color:#58695f}.guide summary{cursor:pointer;font-weight:800;color:var(--forest2)}.guide p{margin:8px 0 0}
+.choices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin:12px 0 8px}.choice{display:block;cursor:pointer;min-width:0}.choice input{position:absolute;opacity:0;pointer-events:none}.choice span{height:100%;min-height:58px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2px;padding:8px 4px;border:1px solid #dce5de;border-radius:10px;background:#fff;color:#52635a;transition:.15s}.choice strong{font-size:12px}.choice small{font-size:10px;opacity:.8}.choice input:checked+span{background:var(--forest);border-color:var(--forest);color:#fff;box-shadow:0 3px 10px #163f3520}.choice input:focus-visible+span{outline:3px solid #d6b66d}
+.scalehint{font-size:11px;color:var(--muted);margin:6px 0 12px}.question textarea{width:100%;min-height:58px;border:1px solid #d7e1da;border-radius:10px;padding:10px 12px;font:inherit;resize:vertical;background:#fbfdfb}
+.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{background:#f4f8f4;border:1px solid #e5ece6;border-radius:13px;padding:14px}.metric small{display:block;color:var(--muted);font-size:11px}.metric strong{display:block;color:var(--forest);font-size:20px;margin-top:3px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.btn{font:inherit;font-weight:800;border:0;border-radius:10px;padding:11px 15px;cursor:pointer}.primary{background:var(--forest);color:#fff}.secondary{background:var(--mint);color:var(--forest)}.danger{background:#fff0ed;color:#963c2e}.note{font-size:12px;color:var(--muted);margin-top:13px}.historyrow{padding:12px;border:1px solid var(--line);border-radius:11px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}footer{text-align:center;font-size:11px;color:#77847d;padding:18px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:16px}.hero{align-items:flex-start}.mark{width:49px;height:49px;border-radius:15px}.choices{grid-template-columns:repeat(2,minmax(0,1fr))}.choice:last-child{grid-column:span 2}.resultgrid{grid-template-columns:1fr 1fr}.score{font-size:29px}}
+@media print{body{background:#fff}header{background:#fff;color:var(--forest);padding:16px;border-bottom:2px solid var(--forest)}header p{color:#53675c!important}.mark,.no-print{display:none!important}main{margin:10px auto}.panel,.question{box-shadow:none;break-inside:avoid}.guide{display:block}.guide summary{list-style:none}.guide summary::-webkit-details-marker{display:none}.question textarea,.field textarea{border:1px solid #ddd}.scorecard{background:#f0f5f1;color:var(--forest)}.scorecard small{color:#53675c}.track{background:#ddd}}
+</style>
+</head>
+<body>
+<header><div class="wrap hero"><div><div class="eyebrow">SMK Plus Pratama Adi · Seleksi Pengurus</div><h1>Penilaian Wawancara<br>Calon OSIS</h1><p>Lembar penilaian kandidat · 10 pertanyaan inti</p></div><div class="mark">OSIS</div></div></header>
+<main>
+<section class="panel">
+ <div class="head"><h2>01 / Identitas CASIS</h2><span class="tag">Data Peserta</span></div>
+ <div class="grid">
+  <div class="field"><label for="nama">Nama CASIS</label><input id="nama" placeholder="Masukkan nama lengkap"></div>
+  <div class="field"><label for="kelas">Kelas</label><input id="kelas" placeholder="Contoh: XA1 TKJ"></div>
+  <div class="field"><label for="pos">Pos Wawancara</label><select id="pos"><option value="">Pilih pos</option><option>Pos 1</option><option>Pos 2</option><option>Pos 3</option></select></div>
+ </div>
+ <div class="scorecard"><div><small>NILAI AKHIR</small><div class="score"><span id="total">0</span><small> / 100</small></div><div class="track"><div id="progress"></div></div></div><div id="predikat" class="badge">Belum Dinilai</div></div>
+</section>
+<section class="panel">
+ <div class="head"><h2>02 / Pertanyaan & Penilaian</h2><span class="tag">10 Pertanyaan</span></div>
+ <p class="scalehint">Pilih penilaian yang paling sesuai dengan jawaban peserta. Setiap kategori memiliki bobot nilai yang berbeda dan hasilnya dihitung otomatis.</p>
+ <div id="questions"></div>
+</section>
+<section class="panel">
+ <div class="head"><h2>03 / Evaluasi Pewawancara</h2><span class="tag">Catatan Akhir</span></div>
+ <div class="field"><label for="kelebihan">Kelebihan dan potensi CASIS</label><textarea id="kelebihan" rows="3" placeholder="Catat hal positif beserta contoh yang terlihat..."></textarea></div><br>
+ <div class="field"><label for="perlu">Hal yang perlu dikembangkan</label><textarea id="perlu" rows="3" placeholder="Catat aspek yang masih perlu ditingkatkan..."></textarea></div><br>
+ <div class="field"><label for="catatan">Catatan dan rekomendasi</label><textarea id="catatan" rows="3" placeholder="Catatan tambahan untuk pertimbangan seleksi..."></textarea></div>
+</section>
+<section class="panel">
+ <div class="head"><h2>04 / Ringkasan Hasil</h2><span class="tag">Otomatis</span></div>
+ <div class="resultgrid">
+  <div class="metric"><small>Nilai akhir</small><strong id="skor">0 / 100</strong></div>
+  <div class="metric"><small>Penilaian terisi</small><strong id="terisi">0 / 10</strong></div>
+  <div class="metric"><small>Kategori hasil</small><strong id="rekom">Belum dinilai</strong></div>
+ </div>
+ <p class="note">Kategori hasil merupakan panduan awal, bukan keputusan otomatis. Gunakan indikator yang sama untuk semua peserta dan pertimbangkan catatan serta bukti jawaban.</p>
+ <div class="actions no-print">
+  <button class="btn primary" id="save">Simpan ke Riwayat</button>
+  <button class="btn secondary" id="download">Unduh Hasil (.txt)</button>
+  <button class="btn secondary" id="print">Cetak / Simpan PDF</button>
+  <button class="btn secondary" id="historyBtn">Lihat Riwayat</button>
+  <button class="btn danger" id="reset">Reset Form</button>
+ </div>
+ <div id="history" style="display:none;margin-top:18px"><h3>Riwayat tersimpan di browser ini</h3><div id="historyList"></div><button class="btn danger no-print" id="clearHistory" style="margin-top:10px">Hapus Semua Riwayat</button></div>
+</section>
+<footer>OSIS · SMK Plus Pratama Adi · Penilaian adil, objektif, dan berbasis bukti.</footer>
+</main>
+<script>
+const levels=[
+ {name:"Kurang",value:2,desc:"Belum jelas"},
+ {name:"Cukup",value:5,desc:"Dasar terlihat"},
+ {name:"Baik",value:7,desc:"Relevan"},
+ {name:"Sangat Baik",value:9,desc:"Kuat & konkret"},
+ {name:"Istimewa",value:10,desc:"Matang & terukur"}
+];
+const items=[
+{q:"Apa alasan kamu ingin menjadi pengurus OSIS, dan apa tujuan pribadi yang ingin kamu capai melalui organisasi ini?",guide:"Jawaban kuat menunjukkan keinginan berkontribusi untuk siswa/sekolah, memahami tanggung jawab OSIS, dan memiliki tujuan pribadi yang realistis. Contohnya ingin meningkatkan kemampuan komunikasi atau kepemimpinan. Waspadai jawaban yang hanya mengejar popularitas atau jabatan."},
+{q:"Divisi apa yang paling ingin kamu masuki, dan skill serta experience apa yang kamu miliki untuk mendukung pekerjaan di divisi tersebut?",guide:"Jawaban kuat menyebut divisi secara spesifik, menghubungkan kemampuan atau pengalaman dengan tugas divisi, serta memberi contoh konkret. Pengalaman tidak harus dari organisasi; proyek kelas, ekstrakurikuler, dan kegiatan lain juga relevan."},
+{q:"Apa visi dan misi yang sudah kamu siapkan, dan apa yang akan kamu lakukan untuk mewujudkannya?",guide:"Jawaban kuat memiliki visi yang jelas, misi realistis, langkah kerja, target, dan cara mengevaluasi hasil. Ide sebaiknya sesuai kebutuhan siswa dan bisa dilaksanakan bersama tim."},
+{q:"Menjadi pengurus OSIS akan menyita waktu, tenaga, dan pikiran. Bagaimana cara kamu menghadapi konsekuensi tersebut saat berada di titik lelah?",guide:"Jawaban kuat menunjukkan kemampuan mengelola energi, berkomunikasi saat kesulitan, meminta bantuan dengan tepat, dan tetap bertanggung jawab. Bukan sekadar berjanji akan selalu kuat atau mengabaikan kesehatan."},
+{q:"Di antara sekian banyak calon yang mendaftar, apa keunggulan atau keunikan dirimu yang membuat kami harus memilih kamu?",guide:"Jawaban kuat menyebut keunggulan yang relevan beserta bukti, tanpa merendahkan calon lain. Perhatikan kejujuran, refleksi diri, dan kontribusi nyata yang bisa diberikan."},
+{q:"Bagaimana teknik atau cara mengatur waktu agar tugas akademik, kegiatan OSIS, dan urusan pribadi tetap seimbang?",guide:"Jawaban kuat menyebut cara praktis seperti kalender atau jadwal, daftar prioritas, tenggat waktu, dan evaluasi rutin. Peserta juga punya strategi saat jadwal berubah dan tetap menjaga tanggung jawab akademik."},
+{q:"Apakah kamu mengikuti ekstrakurikuler lain di sekolah, dan bagaimana kamu mengambil keputusan jika kegiatannya bentrok dengan agenda OSIS?",guide:"Jawaban kuat mempertimbangkan urgensi, tanggung jawab yang sudah disepakati, aturan sekolah, dan koordinasi dengan pembina atau pengurus terkait. Tidak asal memilih atau menghilang tanpa kabar."},
+{q:"Bagaimana caramu meminta izin secara bertanggung jawab jika terpaksa berhalangan hadir dalam rapat atau kegiatan OSIS?",guide:"Jawaban kuat memberi kabar sedini mungkin kepada pihak yang tepat, menjelaskan alasan dengan jujur, mengikuti prosedur izin, menyelesaikan tugas yang tertinggal, dan mencari informasi penting yang terlewat."},
+{q:"Sebutkan kelebihan dan kekurangan dirimu.",guide:"Jawaban kuat realistis dan seimbang: kelebihan disertai contoh, kekurangan disertai langkah konkret untuk memperbaikinya. Perhatikan kesadaran diri dan kemauan berkembang."},
+{q:"Jika kamu tidak diterima di divisi yang diminati dan dipindahkan ke divisi lain, apakah kamu akan tetap memberikan komitmen 100%?",guide:"Jawaban kuat menunjukkan fleksibilitas, kemauan belajar, dan komitmen pada tujuan bersama OSIS. Peserta boleh menyampaikan preferensi dengan sopan, tetapi tetap terbuka terhadap kebutuhan organisasi."}
+];
+const root=document.getElementById('questions');
+items.forEach((item,i)=>{
+ let n=i+1,el=document.createElement('article');el.className='question';
+ el.innerHTML=`<div class="qrow"><div class="qnum">${String(n).padStart(2,'0')}</div><div class="qmain"><h3>${item.q}</h3><details class="guide"><summary>Lihat panduan jawaban ideal untuk pewawancara</summary><p>${item.guide}</p></details></div></div>
+ <div class="choices" role="radiogroup" aria-label="Penilaian pertanyaan ${n}">${levels.map(l=>`<label class="choice"><input type="radio" name="q${n}" value="${l.value}" data-label="${l.name}"><span><strong>${l.name}</strong><small>${l.desc}</small></span></label>`).join('')}</div>
+ <div class="scalehint">Penilaian: Kurang · Cukup · Baik · Sangat Baik · Istimewa</div>
+ <textarea id="note${n}" placeholder="Catatan jawaban peserta (opsional)"></textarea>`;
+ root.appendChild(el);
+});
+function getScores(){return items.map((_,i)=>{let x=document.querySelector(`input[name="q${i+1}"]:checked`);return x?{value:+x.value,label:x.dataset.label}:null})}
+function calc(){let a=getScores(),sum=a.reduce((s,x)=>s+(x?x.value:0),0),filled=a.filter(Boolean).length;let score=Math.round(sum/100*100);let pred=sum===0?'Belum Dinilai':sum>=90?'Istimewa':sum>=80?'Sangat Baik':sum>=70?'Baik':sum>=50?'Cukup':'Perlu Pengembangan';document.getElementById('total').textContent=score;document.getElementById('progress').style.width=score+'%';document.getElementById('predikat').textContent=pred;document.getElementById('skor').textContent=score+' / 100';document.getElementById('terisi').textContent=filled+' / 10';document.getElementById('rekom').textContent=pred;return {a,sum,score,filled,pred}}
+document.addEventListener('change',e=>{if(e.target.matches('input[type=radio]'))calc()});
+function v(id){return document.getElementById(id).value.trim()}
+function collect(){let c=calc();return {nama:v('nama'),kelas:v('kelas'),pos:v('pos'),scores:c.a.map(x=>x?x.value:0),labels:c.a.map(x=>x?x.label:'Belum dinilai'),total:c.score,filled:c.filled,predikat:c.pred,answers:items.map((x,i)=>({question:x.q,score:c.a[i]?c.a[i].value:0,label:c.a[i]?c.a[i].label:'Belum dinilai',note:v('note'+(i+1)),guide:x.guide})),kelebihan:v('kelebihan'),perlu:v('perlu'),catatan:v('catatan'),savedAt:new Date().toLocaleString('id-ID')}}
+function report(d){return `PENILAIAN WAWANCARA Calon OSIS\nSMK PLUS PRATAMA ADI\n${'='.repeat(44)}\nNama CASIS: ${d.nama||'-'}\nKelas: ${d.kelas||'-'}\nPos: ${d.pos||'-'}\n\nNILAI AKHIR: ${d.total}/100\nKategori: ${d.predikat}\nPenilaian terisi: ${d.filled}/10\n\n${d.answers.map((a,i)=>`${i+1}. ${a.question}\nPenilaian: ${a.label} (${a.score}/10)\nCatatan: ${a.note||'-'}`).join('\n\n')}\n\nKelebihan dan potensi:\n${d.kelebihan||'-'}\n\nHal yang perlu dikembangkan:\n${d.perlu||'-'}\n\nCatatan dan rekomendasi:\n${d.catatan||'-'}\n\nDisimpan: ${d.savedAt}\nCatatan: kategori adalah panduan awal, bukan keputusan otomatis.`}
+function downloadData(d){let blob=new Blob([report(d)],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`Penilaian_CASIS_${(d.nama||'Peserta').replace(/[^a-z0-9_-]/gi,'_')}.txt`;a.click();URL.revokeObjectURL(a.href)}
+document.getElementById('download').onclick=()=>downloadData(collect());
+document.getElementById('print').onclick=()=>window.print();
+document.getElementById('save').onclick=()=>{let d=collect();if(!d.nama||!d.kelas||!d.pos){alert('Lengkapi Nama CASIS, Kelas, dan Pos terlebih dahulu.');return}let h=JSON.parse(localStorage.getItem('osisCasisHistoryV2')||'[]');h.unshift(d);localStorage.setItem('osisCasisHistoryV2',JSON.stringify(h));renderHistory();alert('Hasil berhasil disimpan di riwayat browser ini.')};
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderHistory(){let h=JSON.parse(localStorage.getItem('osisCasisHistoryV2')||'[]'),el=document.getElementById('historyList');el.innerHTML='';if(!h.length){el.innerHTML='<p class="scalehint">Belum ada hasil tersimpan.</p>';return}h.forEach(d=>{let row=document.createElement('div');row.className='historyrow';let info=document.createElement('div');info.innerHTML=`<strong>${esc(d.nama||'Tanpa nama')}</strong><br><small>${esc(d.kelas||'-')} · ${esc(d.pos||'-')} · ${d.total}/100 · ${esc(d.predikat)}</small>`;let b=document.createElement('button');b.className='btn secondary';b.textContent='Unduh';b.onclick=()=>downloadData(d);row.append(info,b);el.append(row)})}
+document.getElementById('historyBtn').onclick=()=>{let h=document.getElementById('history');h.style.display=h.style.display==='none'?'block':'none';renderHistory()};
+document.getElementById('clearHistory').onclick=()=>{if(confirm('Hapus semua riwayat penilaian dari browser ini?')){localStorage.removeItem('osisCasisHistoryV2');renderHistory()}};
+document.getElementById('reset').onclick=()=>{if(confirm('Reset seluruh isian penilaian ini?')){document.querySelectorAll('input[type=text],select,textarea').forEach(x=>x.value='');document.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false);calc();window.scrollTo({top:0,behavior:'smooth'})}};
+calc();
+</script>
+</body>
+</html>
